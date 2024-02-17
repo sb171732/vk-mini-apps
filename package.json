@@ -1,0 +1,15 @@
+{
+  "name": "vk-mini-apps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "vk-miniapps-deploy"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vkontakte/vk-miniapps-deploy": "^0.1.6"
+  }
+}

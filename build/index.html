@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+       <h1>Hello world !</h1>
+       <h2 id="userId"></h2>
+       <h2 id="firstName"></h2>
+       <h2 id="userCity"></h2>
+       <hr>
+       <img id="photo" src="" alt="">
+</body>
+<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+<script>
+    // Отправляет событие инициализации нативному клиенту
+    vkBridge.send('VKWebAppInit');
+    vkBridge.send('VKWebAppGetUserInfo')
+          .then((data) => { 
+            if (data.id) {
+              // Данные пользователя получены
+             getId(data)
+              
+            }    
+          })
+          .catch((error) => {
+            // Ошибка
+            console.log(error);
+            console.log('ошибка')
+          });
+     function getId(data){
+        document.getElementById('userId').innerText = data.id
+        document.getElementById('firstName').innerText = data.first_name
+        document.getElementById('userCity').innerText = data.city.title
+        document.getElementById('photo').setAttribute('src',data.photo_200)
+
+     }
+
+  </script>
+
+
+</html>
